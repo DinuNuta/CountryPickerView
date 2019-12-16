@@ -149,6 +149,7 @@ public class CountryPickerView: NibView {
             }
         }
     }
+    
     public var excludedCountries: [String]? {
         didSet{
             if let _excludedCountries = self.excludedCountries{
