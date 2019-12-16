@@ -32,6 +32,7 @@ public class CountryPickerViewController: UITableViewController {
     
     override public func viewDidLoad() {
         super.viewDidLoad()
+        self.view.tintColor = countryPickerView.tintColor
         
         prepareTableItems()
         prepareNavItem()
@@ -73,7 +74,7 @@ extension CountryPickerViewController {
     
     func prepareNavItem() {
         navigationItem.title = dataSource.navigationTitle
-
+        navigationController?.navigationBar.tintColor = self.view.tintColor
         // Add a close button if this is the root view controller
         if navigationController?.viewControllers.count == 1 {
             let closeButton = dataSource.closeButtonNavigationItem
@@ -95,7 +96,7 @@ extension CountryPickerViewController {
         searchController?.definesPresentationContext = true
         searchController?.searchBar.delegate = self
         searchController?.delegate = self
-
+        searchController?.searchBar.tintColor = self.view.tintColor
         switch searchBarPosition {
         case .tableViewHeader: tableView.tableHeaderView = searchController?.searchBar
         case .navigationBar: navigationItem.titleView = searchController?.searchBar

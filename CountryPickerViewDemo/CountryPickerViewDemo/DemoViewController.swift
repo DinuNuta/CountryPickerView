@@ -35,7 +35,7 @@ class DemoViewController: UITableViewController {
         phoneNumberField.leftView = cp
         phoneNumberField.leftViewMode = .always
         self.cpvTextField = cp
-
+        self.cpvTextField.tintColor = UIColor.red
         cpvMain.tag = 1
         cpvTextField.tag = 2
         cpvIndependent.tag = 3
