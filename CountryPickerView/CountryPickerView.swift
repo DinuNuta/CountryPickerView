@@ -149,8 +149,15 @@ public class CountryPickerView: NibView {
             }
         }
     }
+    public var excludedCountries: [String]? {
+        didSet{
+            if let _excludedCountries = self.excludedCountries{
+                self.countries = self.countries.filter({!_excludedCountries.contains($0.code)})
+            }
+        }
+    }
     
-    public let countries: [Country] = {
+    public var countries: [Country] = {
         var countries = [Country]()
         let bundle = Bundle(for: CountryPickerView.self)
         guard let jsonPath = bundle.path(forResource: "CountryPickerView.bundle/Data/CountryCodes", ofType: "json"),
